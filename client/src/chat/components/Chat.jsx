@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import socket from '../sockets/chatSocket.js'
+
 
 function Chat() {
   const [message, setMessage] = useState('')
@@ -10,7 +12,9 @@ function Chat() {
   })
 
   useEffect(() => {
+    socket.on('privateChat', (data) => {
 
+    })
 
     return () => {
 
@@ -19,7 +23,7 @@ function Chat() {
 
 
   return (
-    <div>
+    <div className='h-[80%] w-[80%] bg-black text-white'>
 
     </div>
   )
