@@ -1,14 +1,12 @@
 import './App.css'
+import ChatBox from '../src/chat/components/Chat.jsx'
 
 function App() {
 
   return (
     <>
-        
-      <div >
-        
-      </div>
-   </>
+      <ChatBox />
+    </>
   )
 }
 
