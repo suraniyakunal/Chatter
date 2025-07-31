@@ -4,8 +4,7 @@ import dotenv from 'dotenv'
 import http from 'http'
 import { Server } from 'socket.io'
 import handleChatEvents from './sockets/socket.js'
-import mongoose from 'mongoose'
-import Users from './models/User.js'
+import connectDb from './database/connect.js'
 
 
 const app = express()
@@ -19,8 +18,9 @@ app.use(express.json())
 dotenv.config({ path: './configs/.env' })
 app.use(cors())
 
-const port = process.env.PORT
+const port = process.env.PORT || 3000
 const MONGO_URI = process.env.MONGO_URI
+console.log(MONGO_URI)
 
 
 //routes
@@ -35,9 +35,7 @@ io.on('connection', (socket) => {
 })
 
 //Database connection in Mongodb
-mongoose.connect(MONGO_URI)
-  .then(() => { console.log("The database is connected") })
-  .catch((error => { console.log("some error in connection", error) }))
+connectDb(MONGO_URI)
 
 //running server
 server.listen(port, () => { console.log(`The server is running on port ${port}`) })
