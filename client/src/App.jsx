@@ -1,11 +1,11 @@
 import './App.css'
-import ChatBox from '../src/chat/components/Chat.jsx'
+import Chat from '../src/chat/components/Chat.jsx'
 
 function App() {
 
   return (
     <>
-      <ChatBox />
+      <Chat />
     </>
   )
 }
