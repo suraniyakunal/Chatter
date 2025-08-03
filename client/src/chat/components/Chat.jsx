@@ -16,7 +16,7 @@ function Chat() {
       setChat(prev => [...prev, data])
     })
 
-    socket.on(() => {
+    socket.on('joinRoom', (data) => {
 
     })
 
