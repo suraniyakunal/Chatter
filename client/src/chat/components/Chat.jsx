@@ -16,6 +16,10 @@ function Chat() {
       setChat(prev => [...prev, data])
     })
 
+    socket.on(() => {
+
+    })
+
     return () => {
       socket.off('privateChat')
     }
