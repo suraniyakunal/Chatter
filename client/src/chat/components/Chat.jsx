@@ -18,7 +18,6 @@ function Chat() {
 
     socket.on('joinRoom', (data) => {
       console.log("Hello", data)
-      console.log("Hello", data)
     })
 
     return () => {
