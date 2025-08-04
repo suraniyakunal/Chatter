@@ -3,13 +3,10 @@ import socket from '../sockets/chatSocket.js'
 
 
 function Chat() {
+
   const [message, setMessage] = useState('')
-  const [chat, setChat] = useState({
-    user: '',
-    room: '',
-    message: '',
-    time: null,
-  })
+  const [chat, setChat] = useState([])
+
 
   useEffect(() => {
     socket.on('privateChat', (data) => {
