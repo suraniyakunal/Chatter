@@ -12,11 +12,6 @@ function Chat() {
     socket.on('privateChat', (data) => {
       setChat(prev => [...prev, data])
       console.log("Hello", data)
-      console.log("Hello", data)
-      console.log("Hello", data)
-      console.log("Hello", data)
-      console.log("Hello", data)
-      console.log("Hello", data)
     })
 
     socket.on('joinRoom', (data) => {
