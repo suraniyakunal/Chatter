@@ -1,25 +1,25 @@
 
 export default function handleChatEvents(socket, io) {
 
-  socket.on('set-username', async ({ username }) => {
-    const name = await username
-    if (typeof name !== String || name.trim() === '') {
-      console.log('Invalid username received');
+  const users = new Map()
 
-    } else {
-      alert("socket name is not set yet")
-    }
+  socket.on('set-username', async (username) => {
+    const name = await username
+    // if (typeof name !== String || name.trim() === '') {
+    //   console.log('Invalid username received');
+    // }
 
     socket.username = name
-    console.log(`your username is set to ${socket.username}`)
-    alert(`Welcome ${socket.username}`)
+    users.set(socket.username)
+    console.log(users)
+    console.log(`Welcome ${socket.username}`)
   })
-  socket.on('privateChat', (chat) => {
-
+  socket.on('privateChat', ({ room, message }) => {
+    io.to(room).emit(message)
   })
 
-  socket.on('joinRoom', (room) => {
-
+  socket.on('joinRoom', ({ room }) => {
+    socket.join(room)
   })
 
   socket.on('disconnect', () => {

@@ -10,7 +10,11 @@ import connectDb from './database/connect.js'
 const app = express()
 const server = http.createServer(app)
 const io = new Server(server, {
-  cors: { origin: '*' }
+  cors: {
+    origin: "http://localhost:5173",
+    methods: ["GET", "POST"],
+    credentials: true
+  }
 })
 
 //middlewares
@@ -28,7 +32,7 @@ app.get('/', (req, res) => {
 })
 
 //socket io connection
-makeSocketIoConnection(io, { username })
+makeSocketIoConnection(io)
 
 //Database connection in Mongodb
 // connectDb(MONGO_URI)
