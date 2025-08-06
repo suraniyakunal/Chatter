@@ -3,7 +3,7 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import http from 'http'
 import { Server } from 'socket.io'
-import handleChatEvents from './sockets/socket.js'
+import makeSocketIoConnection from './sockets/connection.js'
 import connectDb from './database/connect.js'
 
 
@@ -20,7 +20,6 @@ app.use(cors())
 
 const port = process.env.PORT || 3000
 const MONGO_URI = process.env.MONGO_URI
-console.log(MONGO_URI)
 
 
 //routes
@@ -29,13 +28,13 @@ app.get('/', (req, res) => {
 })
 
 //socket io connection
-io.on('connection', (socket) => {
-  console.log("The new user is connected", socket.id)
-  handleChatEvents(socket, io)
-})
+makeSocketIoConnection(io, { username })
 
 //Database connection in Mongodb
-connectDb(MONGO_URI)
+// connectDb(MONGO_URI)
 
 //running server
 server.listen(port, () => { console.log(`The server is running on port ${port}`) })
+
+
+
