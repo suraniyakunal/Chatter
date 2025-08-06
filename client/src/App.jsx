@@ -6,9 +6,10 @@ function App() {
 
   return (
     <>
-
-      <Username />
-      {/* <Chat /> */}
+      <div>
+        <Username />
+        <Chat />
+      </div>
     </>
   )
 }
