@@ -6,22 +6,26 @@ function Chat() {
 
   const [message, setMessage] = useState('')
   const [chat, setChat] = useState('')
-  const [room, setRoom] = useState('')
+  const [room, setRoom] = useState([])
 
 
   useEffect(() => {
     socket.on('private-chat', (data) => {
       setChat(prev => [...prev, data])
-      console.log("Hello", data)
     })
 
     socket.on('join-room', (data) => {
       setRoom(prev => [...prev, data])
     })
 
+    socket.on('create-room', (room) => {
+      setRoom(prev => [...prev, room])
+    })
+
     return () => {
       socket.off('private-chat')
       socket.off('join-room')
+      socket.off('create-room')
     }
   }, [])
 
@@ -35,16 +39,20 @@ function Chat() {
     <div className='h-screen w-full flex justify-center items-center bg-black text-white relative'>
       <div id='chatbox' className='h-[90%] w-[90%] flex ring rounded-md bg-gray-950 shadow-2xl shadow-gray-900 absolute'>
         <div id='onlineUsers' className='h-full w-[35%] text-center'>
-          <h1>Users</h1>
+          <h1>Rooms</h1>
           <ul>
-
+            {room ? room.map((r, id) => (
+              <li key={id}>{r}</li>
+            )) :
+              <p>No rooms yet prevent</p>}
           </ul>
         </div>
         <div id="chatSection" className="flex flex-col h-full w-full border-s-2">
           <div className="flex-1 overflow-y-auto">
-            {chat.map((msg, id) => (
+            {chat ? chat.map((msg, id) => (
               <li key={id}>{msg.message}</li>
-            ))}
+            )) :
+              <p>No chats yet</p>}
           </div>
 
           <form className="flex gap-4 justify-center items-center h-20 w-full px-4 py-3 ">
