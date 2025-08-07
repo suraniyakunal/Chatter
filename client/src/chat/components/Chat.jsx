@@ -40,7 +40,7 @@ function Chat() {
       <div id='chatbox' className='h-[90%] w-[90%] flex ring rounded-md bg-gray-950 shadow-2xl shadow-gray-900 absolute'>
         <div id='onlineUsers' className='h-full w-[35%] text-center'>
           <h1>Rooms</h1>
-          <ul>
+          <ul className='w-full h-5'>
             {room ? room.map((r, id) => (
               <li key={id}>{r}</li>
             )) :
