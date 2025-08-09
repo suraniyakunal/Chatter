@@ -34,6 +34,9 @@ function Chat() {
     socket.emit('private-chat', message)
     socket.emit('join-room', room)
     socket.emit('welcome', 'Welcome to the app')
+    socket.emit('welcome', 'Welcome to the app')
+    socket.emit('welcome', 'Welcome to the app')
+    socket.emit('welcome', 'Welcome to the app')
   }
 
   return (
