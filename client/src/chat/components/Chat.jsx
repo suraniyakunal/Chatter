@@ -35,8 +35,6 @@ function Chat() {
     socket.emit('join-room', room)
     socket.emit('welcome', 'Welcome to the app')
     socket.emit('welcome', 'Welcome to the app')
-    socket.emit('welcome', 'Welcome to the app')
-    socket.emit('welcome', 'Welcome to the app')
   }
 
   return (
