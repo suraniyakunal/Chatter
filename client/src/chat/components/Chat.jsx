@@ -22,8 +22,6 @@ function Chat() {
       setRoom(prev => [...prev, room])
       console.log("whatever")
       console.log("whatever")
-      console.log("whatever")
-      console.log("whatever")
     })
 
     return () => {
