@@ -20,8 +20,6 @@ function Chat() {
 
     socket.on('create-room', (room) => {
       setRoom(prev => [...prev, room])
-      console.log("Hello bro")
-      console.log("Hello bro")
     })
 
     return () => {
