@@ -20,13 +20,6 @@ function Chat() {
 
     socket.on('create-room', (room) => {
       setRoom(prev => [...prev, room])
-      console.log("hello my name is kunal")
-
-      console.log("hello my name is kunal")
-      console.log("hello my name is kunal")
-      console.log("hello my name is kunal")
-      console.log("hello my name is kunal")
-      console.log("hello my name is kunal")
     })
 
     return () => {
