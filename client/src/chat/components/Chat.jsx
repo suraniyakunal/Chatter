@@ -13,6 +13,10 @@ function Chat() {
     socket.on('private-chat', (data) => {
       setChat(prev => [...prev, data])
       console.log("Hello hello")
+      console.log("Hello hello")
+      console.log("Hello hello")
+      console.log("Hello hello")
+      console.log("Hello hello")
     })
 
     socket.on('join-room', (data) => {
