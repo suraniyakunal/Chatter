@@ -15,6 +15,9 @@ function Chat() {
       console.log("kunal hvuyctrxrxyxyyrxe")
       console.log("kunal hvuyctrxrxyxyyrxe")
       console.log("kunal hvuyctrxrxyxyyrxe")
+      console.log("kunal hvuyctrxrxyxyyrxe")
+      console.log("kunal hvuyctrxrxyxyyrxe")
+      console.log("kunal hvuyctrxrxyxyyrxe")
     })
 
     socket.on('join-room', (data) => {
