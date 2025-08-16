@@ -12,7 +12,6 @@ function Chat() {
   useEffect(() => {
     socket.on('private-chat', (data) => {
       setChat(prev => [...prev, data])
-      console.log("vtdytduuyfyf")
     })
 
     socket.on('join-room', (data) => {
