@@ -8,6 +8,7 @@ const Username = () => {
   const handleUsername = (e) => {
     e.preventDefault()
     socket.emit('set-username', username)
+    console.log(username)
     setUsername('')
   }
   return (
