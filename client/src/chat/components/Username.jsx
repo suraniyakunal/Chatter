@@ -9,6 +9,11 @@ const Username = () => {
     e.preventDefault()
     socket.emit('set-username', username)
     console.log(username)
+    console.log(username)
+    console.log(username)
+    console.log(username)
+    console.log(username)
+    console.log(username)
     setUsername('')
   }
   return (
