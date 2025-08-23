@@ -19,6 +19,8 @@ function Chat() {
       console.log(data)
       console.log(data)
       console.log(data)
+      console.log(data)
+      console.log(data)
     })
 
     socket.on('create-room', (room) => {
