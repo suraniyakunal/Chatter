@@ -17,6 +17,11 @@ function Chat() {
     socket.on('join-room', (data) => {
       setRoom(prev => [...prev, data])
       console.log(data)
+      console.log(data)
+      console.log(data)
+      console.log(data)
+      console.log(data)
+      console.log(data)
     })
 
     socket.on('create-room', (room) => {
