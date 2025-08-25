@@ -26,8 +26,9 @@ export default function handleChatEvents(socket, io, users) {
   // })
   //
   socket.on('disconnect', () => {
-    users.delete(socket.id);
-    console.log(`${socket.username} disconnected with id:`, socket.id)
+    users.delete(socket.username);
+    // console.log(`${socket.username} disconnected with id:`, socket.id)
+    io.emit('online-users', Array.from(users.values()));
   })
 }
 
