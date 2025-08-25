@@ -1,24 +1,21 @@
 
-export default function handleChatEvents(socket, io) {
+export default function handleChatEvents(socket, io, users) {
 
-  const users = []
-
-  socket.on('set-username', async (username) => {
-    const name = await username
+  socket.on('set-username', (username) => {
+    const name = username
     // if (typeof name !== String || name.trim() === '') {
     //   console.log('Invalid username received');
     // }
 
     socket.username = name
-    // users.set(socket.id, { id: socket.id, name: socket.username })
-    users.push(socket.username)
+    users.set(name, { id: socket.id, name: name })
+    // console.log(`Welcome ${socket.username}`)
 
-    console.log(`Welcome ${socket.username}`)
+
+    io.emit('online-users', Array.from(users.values()))
+
   })
 
-  console.log(users)
-
-  io.emit('online-users', users)
 
   socket.on('global-chat', ({ room, message }) => {
     // io.to(room).emit(message)
@@ -29,6 +26,7 @@ export default function handleChatEvents(socket, io) {
   // })
   //
   socket.on('disconnect', () => {
+    users.delete(socket.id);
     console.log(`${socket.username} disconnected with id:`, socket.id)
   })
 }
