@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import socket from "../sockets/chatSocket";
 
-const Username = () => {
+const Username = ({ onLogin }) => {
   const [username, setUsername] = useState('')
-  // const [input, setInput] = useState('')
+
 
   const handleUsername = (e) => {
     e.preventDefault()
     socket.emit('set-username', username)
+    if (username) {
+      onLogin()
+    }
     setUsername('')
   }
   return (
