@@ -12,10 +12,9 @@ function Chat() {
 
   useEffect(() => {
 
-    socket.on('online-users', async (usr) => {
-      const names = await usr
-      setUsers(names)
-      console.log(users)
+    socket.on('online-users', (usr) => {
+      setUsers(usr)
+      console.log(usr)
     })
     // for future features
     socket.on('global-chat', (data) => {
@@ -37,7 +36,7 @@ function Chat() {
       // socket.off('join-room')
       // socket.off('create-room')
     }
-  }, [users])
+  }, [])
 
   const handleSendMessage = (e) => {
     e.preventDefault()
@@ -52,8 +51,8 @@ function Chat() {
         <div id='onlineUsers' className='h-full w-[35%] text-center'>
           <h1>Users</h1>
           <ul className='w-full h-5'>
-            {users ? users.map((r, id) => (
-              <li key={id}>{r.name}</li>
+            {users ? users.map((usr, id) => (
+              <li key={id}>{usr.name}</li>
             )) :
               <p>No user Online</p>}
           </ul>
