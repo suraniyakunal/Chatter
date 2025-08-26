@@ -5,7 +5,7 @@ import socket from '../sockets/chatSocket.js'
 function Chat() {
 
   const [message, setMessage] = useState('')
-  const [chat, setChat] = useState('')
+  const [chat, setChat] = useState([])
   // const [room, setRoom] = useState([])
   const [users, setUsers] = useState([])
 
@@ -14,7 +14,6 @@ function Chat() {
 
     socket.on('online-users', (usr) => {
       setUsers(usr)
-      console.log(usr)
     })
     // for future features
     socket.on('global-chat', (data) => {
@@ -40,9 +39,10 @@ function Chat() {
 
   const handleSendMessage = (e) => {
     e.preventDefault()
-    socket.emit('private-chat', message)
+    socket.emit('global-chat', message)
+    setMessage('')
     // socket.emit('join-room', room)
-    socket.emit('welcome', 'Welcome to the app')
+    // socket.emit('welcome', 'Welcome to the app')
   }
 
   return (
@@ -58,15 +58,22 @@ function Chat() {
           </ul>
         </div>
         <div id="chatSection" className="flex flex-col h-full w-full border-s-2">
-          <div className="flex-1 overflow-y-auto">
-            {chat ? chat.map((msg, id) => (
-              <li key={id}>{msg.message}</li>
-            )) :
-              <p>No chats yet</p>}
+          <div className="flex-1 overflow-y-auto p-4">
+            <ul className="flex flex-col space-y-2">
+              {chat.length > 0 ? chat.map((msg, id) => (
+                <li
+                  key={id}
+                  className="text-white p-4 rounded-md max-w-[80%] self-start ml-4"
+                >
+                  <strong>{msg.from}:</strong> {msg.message}
+                </li>
+              )) :
+                <p>No chats yet</p>}
+            </ul>
           </div>
-
           <form className="flex gap-4 justify-center items-center h-20 w-full px-4 py-3 ">
             <input
+              value={message}
               type="text"
               placeholder="Type message"
               className="text-left rounded-xl h-10 w-[650px] ring p-3"

@@ -14,10 +14,10 @@ const Username = ({ onLogin }) => {
     setUsername('')
   }
   return (
-    <div className="flex h-screen w-full justify-center items-center text-center">
+    <form className="flex h-screen w-full justify-center items-center text-center">
       <input className="" placeholder="Type your name" type="text" name="username" value={username} onChange={(e) => { setUsername(e.target.value) }} />
       <button className="bg-amber-300 p-4 h-8 w-10 text-white rounded" type="submit" onClick={handleUsername}>Add</button>
-    </div>
+    </form>
   )
 }
 
