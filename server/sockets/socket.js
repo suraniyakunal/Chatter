@@ -17,14 +17,14 @@ export default function handleChatEvents(socket, io, users) {
   })
 
 
-  socket.on('global-chat', ({ room, message }) => {
-    // io.to(room).emit(message)
+  socket.on('global-chat', (mssg) => {
+    io.emit('global-chat', { message: mssg, from: socket.username })
   })
   //
   // socket.on('joinRoom', ({ room }) => {
   //   socket.join(room)
   // })
-  //
+
   socket.on('disconnect', () => {
     users.delete(socket.username);
     // console.log(`${socket.username} disconnected with id:`, socket.id)
