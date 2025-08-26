@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import Picker from '@emoji-mart/react'
+import data from '@emoji-mart/data'
 import socket from '../sockets/chatSocket.js'
 
 
@@ -8,6 +10,12 @@ function Chat() {
   const [chat, setChat] = useState([])
   // const [room, setRoom] = useState([])
   const [users, setUsers] = useState([])
+  const [showPicker, setShowPicker] = useState(false)
+
+  const addEmoji = (emoji) => {
+    setMessage(prev => [...prev, emoji.native])
+  }
+
 
 
   useEffect(() => {
@@ -72,13 +80,17 @@ function Chat() {
             </ul>
           </div>
           <form className="flex gap-4 justify-center items-center h-20 w-full px-4 py-3 ">
-            <input
+            <textarea
               value={message}
               type="text"
               placeholder="Type message"
               className="text-left rounded-xl h-10 w-[650px] ring p-3"
               onChange={(e) => { setMessage(e.target.value) }}
             />
+            <button type='button' onClick={() => setShowPicker(!showPicker)}>😊</button>
+            {showPicker && (
+              <Picker data={data} onEmojiSelect={addEmoji} />
+            )}
             <button
               type="submit"
               className="h-10 w-40 bg-amber-500 rounded-lg hover:bg-amber-600 hover:text-gray-600"
