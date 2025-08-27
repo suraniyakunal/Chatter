@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { MdOutlineEmojiEmotions } from "react-icons/md"
 import Picker from '@emoji-mart/react'
 import data from '@emoji-mart/data'
 import socket from '../sockets/chatSocket.js'
@@ -57,7 +58,7 @@ function Chat() {
     <div className='h-screen w-full flex justify-center items-center bg-black text-white relative'>
       <div id='chatbox' className='h-[90%] w-[90%] flex ring rounded-md bg-gray-950 shadow-2xl shadow-gray-900 absolute'>
         <div id='onlineUsers' className='h-full w-[35%] text-center'>
-          <h1>Users</h1>
+          <h1>Online users</h1>
           <ul className='w-full h-5'>
             {users ? users.map((usr, id) => (
               <li key={id}>{usr.name}</li>
@@ -84,10 +85,10 @@ function Chat() {
               value={message}
               type="text"
               placeholder="Type message"
-              className="text-left rounded-xl h-10 w-[650px] ring p-3"
+              className=" w-full resize-none p-3 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
               onChange={(e) => { setMessage(e.target.value) }}
             />
-            <button type='button' onClick={() => setShowPicker(!showPicker)}>😊</button>
+            <button type='button' onClick={() => setShowPicker(!showPicker)}><MdOutlineEmojiEmotions /></button>
             {showPicker && (
               <Picker data={data} onEmojiSelect={addEmoji} />
             )}
