@@ -1,21 +1,27 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom';
 
 
 const Navbar = () => {
 
-  const navItems = ["About", "Projects", "Contact"];
-
 
   return (
-    <div id="nav" className='flex  justify-between items-center p-3 w-[50vw] h-10 text-center rounded-full border gap-x-30 '>
-      <div id="logo" className='ml-7'>
-        <h1 className='font-bold text-2xl'>Chatter</h1>
+    <div id="nav" className='flex justify-between items-center h-10 w-[550px] text-center rounded-full border  '>
+      <div id="logo" className=''>
+        <li className='text-2xl bold list-none  '><NavLink to='/'>ChatApp</NavLink></li>
       </div>
-      <div className='space-x-5 font-sans mr-7'>
-        {navItems.map((item, idx) => (
-          <a key={idx} href="#" className='text-zinc-300'>{item}</a>
-        ))}
+      <ul className="flex gap-7 text-lg mr-5">
+        <li className=" hover:text-blue-300 cursor-pointer "><NavLink to='/'>Home</NavLink></li>
+        <li className="hover:text-blue-300 cursor-pointer"><NavLink to='/chat'>Chat</NavLink></li>
+        <li className="hover:text-blue-300 cursor-pointer"><NavLink to='/register'>Register</NavLink></li>
+      </ul>
+      <div className="md:hidden">
+        <button className="text-white focus:outline-none">
+          ☰
+        </button>
       </div>
+
+
 
     </div>
   )
