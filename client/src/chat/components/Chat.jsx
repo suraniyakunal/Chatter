@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { MdOutlineEmojiEmotions } from "react-icons/md"
-import Picker from '@emoji-mart/react'
-import data from '@emoji-mart/data'
+import Picker from 'emoji-picker-react'
 import socket from '../sockets/chatSocket.js'
 
 
@@ -90,7 +89,7 @@ function Chat() {
             />
             <button type='button' onClick={() => setShowPicker(!showPicker)}><MdOutlineEmojiEmotions /></button>
             {showPicker && (
-              <Picker data={data} onEmojiSelect={addEmoji} />
+              <Picker onEmojiSelect={addEmoji} />
             )}
             <button
               type="submit"

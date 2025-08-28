@@ -1,19 +1,22 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './App.css'
-import Chat from '../src/chat/components/Chat.jsx'
-import Username from './chat/components/Username.jsx'
+import Home from '../src/pages/Home.jsx'
+import { BrowserRouter } from 'react-router-dom'
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
   return (
     <>
-      <div>
-        {isLoggedIn ? (
-          <Chat />
-        ) : (
-          <Username onLogin={() => setIsLoggedIn(true)} />
-        )}
-      </div>
+      <BrowserRouter>
+        <Home />
+      </BrowserRouter>
+      {/* <div> */}
+      {/*   {isLoggedIn ? ( */}
+      {/*     <Chat /> */}
+      {/*   ) : ( */}
+      {/*     <Username onLogin={() => setIsLoggedIn(true)} /> */}
+      {/*   )} */}
+      {/* </div> */}
     </>
   )
 }
