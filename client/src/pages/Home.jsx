@@ -12,7 +12,7 @@ const LandingPage = () => {
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-indigo-600 to-purple-500 text-white py-20 px-4 h-[50vh]">
-        <div className='flex justify-center items-center mt-20'>
+        <div className=''>
           <Navbar />
         </div>
         <div className="max-w-4xl mx-auto text-center">
