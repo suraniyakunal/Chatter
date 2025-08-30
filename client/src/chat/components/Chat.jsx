@@ -16,8 +16,6 @@ function Chat() {
     setMessage(prev => [...prev, emoji.native])
     console.log(emoji)
     console.log(emoji)
-    console.log(emoji)
-    console.log(emoji)
   }
 
 
