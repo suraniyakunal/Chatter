@@ -14,6 +14,10 @@ function Chat() {
 
   const addEmoji = (emoji) => {
     setMessage(prev => [...prev, emoji.native])
+    console.log(emoji)
+    console.log(emoji)
+    console.log(emoji)
+    console.log(emoji)
   }
 
 
