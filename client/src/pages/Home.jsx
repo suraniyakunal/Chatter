@@ -11,8 +11,8 @@ const LandingPage = () => {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-indigo-600 to-purple-500 text-white py-20 px-4 h-[50vh]">
-        <div className=''>
+      <section className="bg-gradient-to-br from-indigo-600 to-purple-500 text-white py-20 px-4 h-[50vh] w-full">
+        <div className='w-full my-3'>
           <Navbar />
         </div>
         <div className="max-w-4xl mx-auto text-center">

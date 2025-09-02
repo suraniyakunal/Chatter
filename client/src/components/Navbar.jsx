@@ -6,25 +6,25 @@ const Navbar = () => {
 
 
   return (
-    <div id="nav" className="w-full border-b py-3">
-      <div className="max-w-6xl mx-auto flex items-center justify-between px-6 h-11 rounded-full border shadow">
+    <div id="nav" className="flex justify-center items-center w-full h-20 py-3 px-2">
+      <div className="m-3 p-3 w-2/3 flex justify-center items-center h-11 rounded-lg border shadow-md">
         {/* Logo */}
-        <div id="logo" className="ml-7">
+        <div id="logo" className="">
           <NavLink to="/" className="text-2xl font-bold">
             Chatter
           </NavLink>
         </div>
 
         {/* Nav Links */}
-        <ul className="flex gap-7 text-lg mr-10">
+        <ul className="flex gap-7 text-lg">
           <li className="hover:text-blue-300 cursor-pointer">
             <NavLink to="/">Home</NavLink>
           </li>
           <li className="hover:text-blue-300 cursor-pointer">
-            <NavLink to="/chat">Chat</NavLink>
+            <NavLink to="/about">About</NavLink>
           </li>
           <li className="hover:text-blue-300 cursor-pointer">
-            <NavLink to="/register">Register</NavLink>
+            <NavLink to="/chat">Chat</NavLink>
           </li>
         </ul>
 
