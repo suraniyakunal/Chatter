@@ -9,13 +9,11 @@ import Navbar from '../components/Navbar.jsx'
 
 const LandingPage = () => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen w-full">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-indigo-600 to-purple-500 text-white py-20 px-4 h-[50vh] w-full">
-        <div className='w-full'>
-          <Navbar />
-        </div>
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="flex flex-col items-center bg-gradient-to-br from-indigo-600 to-purple-500 text-white py-20 px-4 h-[70vh] w-full">
+        <Navbar />
+        <div className="max-w-4xl w-[60vw] bg-amber-500 mx-auto my-30 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
             Welcome to Chatter 💬
           </h1>
