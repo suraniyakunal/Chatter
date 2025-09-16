@@ -16,9 +16,7 @@ const Navbar = () => {
 
       {/* Nav Links */}
       <ul className="flex gap-10 text-lg">
-        <div>
 
-        </div>
         <li className="hover:text-blue-300 cursor-pointer">
           <NavLink to="/">Home</NavLink>
         </li>
